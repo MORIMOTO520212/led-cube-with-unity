@@ -14,7 +14,7 @@ const int SER2 = 4;
 const int RCLK2 = 3;
 const int SRCLK2 = 2;
 
-// 点灯データ 1であれば点灯、0であれば消灯する
+// 受信した点灯パターンデータの配列（1であれば点灯、0であれば消灯する）
 byte led[8][8] = {};
 
 // ダイナミック点灯用
@@ -46,8 +46,8 @@ void setup() {
   digitalWrite(RCLK, HIGH);
 }
 
-char count = 0;
 /* メイン処理 */
+char count = 0;
 void loop() {
   update(count);
   blink_cube(count);
@@ -55,7 +55,7 @@ void loop() {
   else{count++;}
 }
 
-void update(char i){
+void update(char i) {
   digitalWrite(RCLK, LOW);
   for(char j = 0; j < 8; j++){
     shiftOut(SER, SRCLK, MSBFIRST, led[i][j]);
@@ -64,7 +64,7 @@ void update(char i){
 }
 
 // ダイナミック点灯
-void blink_cube(char i){
+void blink_cube(char i) {
   digitalWrite(RCLK2, LOW);
   shiftOut(SER2, SRCLK2, LSBFIRST, dinamic_shift[i]);
   digitalWrite(RCLK2, HIGH);
