@@ -15769,7 +15769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da65a8766b5b0d458ec0927a8134b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: COM4
+  portName: COM3
   baudRate: 57600
 --- !u!1 &912604516
 GameObject:
